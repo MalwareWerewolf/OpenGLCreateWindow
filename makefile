@@ -24,8 +24,9 @@ OBJ := $(patsubst %,$(OBJ_PATH)%,$(OBJ1))
 
 # Build .o first
 $(OBJ_PATH)%.o: $(SRC_PATH)%.*
+				mkdir -p $(@D)
 				@echo [CC] $<
-				@$(CC) $(C_FLAGS) -o $@ -c $< $(INC_PATH)                  
+				@$(CC) $(C_FLAGS) -o $@ -c $< $(INC_PATH)       
 
 # Build final Binary
 $(TARGET):		$(OBJ)
